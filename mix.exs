@@ -100,18 +100,19 @@ defmodule NervesSystemKr260.MixProject do
   defp package_files do
     [
       "fwup_include",
+      "linux",
       "rootfs_overlay",
-      "CHANGELOG.md",
-      "fwup-revert.conf",
-      "fwup.conf",
-      "LICENSE",
-      "linux-5.15.defconfig",
-      "mix.exs",
-      "nerves_defconfig",
+      "uboot",
       "post-build.sh",
       "post-createfs.sh",
+      "CHANGELOG.md",
+      "LICENSE",
       "README.md",
-      "VERSION"
+      "VERSION",
+      "fwup-revert.conf",
+      "fwup.conf",
+      "mix.exs",
+      "nerves_defconfig"
     ]
   end
 
