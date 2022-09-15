@@ -25,3 +25,12 @@ This is the base Nerves System configuration for the Kria KR260.
 | Pmod            | 4 available - 12-pin, Untested                                               |
 | USB             | 4 available                                                                  |
 
+## Using
+
+The most common way of using this Nerves System is create a project with `mix
+nerves.new` and to export `MIX_TARGET=kr260`. See the [Getting started guide](https://hexdocs.pm/nerves/getting-started.html#creating-a-new-nerves-app)
+for more information.
+
+If you need custom modifications to this system for your device, clone this
+repository and update as described in [Making custom systems](https://hexdocs.pm/nerves/customizing-systems.html).
+
