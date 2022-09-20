@@ -11,7 +11,7 @@ This is the base Nerves System configuration for the Kria KR260.
 | Memory          | 4 GB DDR4                                                                    |
 | Storage         | MicroSD, 512 Mb QSPI, 16 GB eMMC, 64 Kb EEPROM                               |
 | Linux kernel    | [linux-xlnx](https://github.com/Xilinx/linux-xlnx)                           |
-| IEx terminal    | UART                                                                         |
+| IEx terminal    | HDMI and USB keyboard (can be changed to UART)                               |
 | GPIO, I2C, SPI  | Raspberry Pi HAT I/F - [Elixir Circuits](https://github.com/elixir-circuits) |
 | ADC             | No                                                                           |
 | PWM             | No                                                                           |
