@@ -47,7 +47,7 @@ Keys used by this system are:
 
 Key                    | Example Value     | Description
 :--------------------- | :---------------- | :----------
-`nerves_serial_number` | `"12345678"`      | By default, this string is used to create unique hostnames and Erlang node names. If unset, it defaults to part of the Raspberry Pi's device ID.
+`nerves_serial_number` | `"12345678"`      | By default, this string is used to create unique hostnames and Erlang node names. If unset, it defaults to 4-digits, part of MAC address.
 
 The normal procedure would be to set these keys once in manufacturing or before
 deployment and then leave them alone.
