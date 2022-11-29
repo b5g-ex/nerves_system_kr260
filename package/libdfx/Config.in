@@ -1,0 +1,7 @@
+config BR2_PACKAGE_LIBDFX
+	bool "libdfx"
+	help
+	  The library is a lightweight user-space library that provides
+	  APIs for application to configure the PL.
+	  
+	  https://github.com/Xilinx/libdfx
