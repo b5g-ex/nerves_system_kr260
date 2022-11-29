@@ -79,3 +79,71 @@ provisioning.conf file location by setting the environment variable
 will set the `nerves_serial_number`, if you override the location to this file,
 you will be responsible for setting this yourself.
 
+## FPGA
+
+This system provides [dfx-mgr](https://github.com/Xilinx/dfx-mgr), so we can load/unload accelerators
+by following steps.
+
+- Add `dfx-mgrd` under the application supervisor, `lib/[project name]/application.ex`.  
+   It's recommended to use [MuonTrap.Daemon](https://hexdocs.pm/muontrap/MuonTrap.Daemon.html).  
+   **IMPORTANT**: `dfx-mgrd` must be to run on RW partition.  (It writes state.txt on it...
+
+```elixir
+  def children(_target) do
+    [
+      # Children for all targets except host
+      # Starts a worker by calling: Kr260Test.Worker.start_link(arg)
+      # {Kr260Test.Worker, arg},
+    ] ++ dfx_mgrd()
+  end
+
+  defp dfx_mgrd() do
+    dfx_mgrd = "/usr/bin/dfx-mgrd"
+
+    if File.exists?(dfx_mgrd) do
+      # nerves_system_kr260 provides `/lib/firmware` as tmpfs
+      [{MuonTrap.Daemon, [dfx_mgrd, [], [cd: "/lib/firmware"]]}]
+    else
+      []
+    end
+  end
+```
+
+- load/unload accelerators by `dfx-mgr-client`.  
+  It's recommended to create wrapper but following example use client directly :).
+
+```
+# list packages
+iex()> cmd "dfx-mgr-client -listPackage"
+                     Accelerator          Accel_type                            Base           Base_type      #slots(PL+AIE)         Active_slot
+
+                k26-starter-kits            XRT_FLAT                k26-starter-kits            XRT_FLAT               (0+0)                  0
+```
+
+```
+# unload
+iex()> cmd "dfx-mgr-client -remove"     
+remove from slot 0 returns: 0 (Ok)
+```
+
+```
+# load
+iex()> cmd "dfx-mgr-client -load k26-starter-kits"
+Loaded to slot 0
+```
+
+### FAQ
+
+Q: Where should accelerators be located?
+
+A: Put them under the `/usr/lib/firmware/xilinx` of **your Nerves project's** by `rootfs_overlay`.
+
+### dfx-mgr details for DEV
+
+1. `dfx-mgrd` needs some RW area.
+    1. `/configfs`, literally [configfs](https://www.kernel.org/doc/Documentation/filesystems/configfs/configfs.txt)  
+       We prepared it as configfs by erlinit, see. `rootfs_overlay/etc/erlinit.config`
+    1. `/lib/firmware`, accelerator's `*.dtbo` is copied to here by `dfx-mgrd`  
+       We prepared it as tmpfs by erlinit, see. `rootfs_overlay/etc/erlinit.config`
+    1. `dfx-mgrd` must run on RW area, 'cause it writes some files to run.  
+       We recommended to use tmpfs(RAM) for it.
