@@ -147,3 +147,14 @@ A: Put them under the `/usr/lib/firmware/xilinx` of **your Nerves project's** by
        We prepared it as tmpfs by erlinit, see. `rootfs_overlay/etc/erlinit.config`
     1. `dfx-mgrd` must run on RW area, 'cause it writes some files to run.  
        We recommended to use tmpfs(RAM) for it.
+
+## Fan Control
+
+In the case of [Ubuntu for Kria SOMs](https://ubuntu.com/download/amd-xilinx), fan control is enabled after boot.
+So the fan will not run at full speed.
+Ubuntu uses `/usr/sbin/fancontrol`, **bash script**, and it is configured by `/etc/fancontrol`.
+`/usr/sbin/fancontrol` controls the fan via `/sys/class/hwmon/hwmonN/pwmN(tempN_input)`.
+
+On the other hand, this system doesn't control the fan.
+This system provides `/sys/class/hwmon/hwmonN/pwmN(tempN_input)`, but not uses `bash`.
+So we don't use `fancontrol`.
