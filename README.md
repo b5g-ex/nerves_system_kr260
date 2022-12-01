@@ -132,6 +132,16 @@ iex()> cmd "dfx-mgr-client -load k26-starter-kits"
 Loaded to slot 0
 ```
 
+### About the default firmware
+
+The default firmware can be specified by `rootfs_overlay/etc/dfx-mgrd/default_firmware`.
+
+User can change it by your Nerves project's `rootfs_overlay/etc/dfx-mgrd/default_firmware`.
+
+Would like to know more details? Let's read https://github.com/Xilinx/dfx-mgr/tree/xilinx_v2022.1_update2#daemonconf.
+
+**NOTE:This system specified `k26-starter-kits` for default, but doesn't include the firmware.**
+
 ### FAQ
 
 Q: Where should accelerators be located?
