@@ -136,7 +136,7 @@ Loaded to slot 0
 
 Q: Where should accelerators be located?
 
-A: Put them under the `/usr/lib/firmware/xilinx` of **your Nerves project's** by `rootfs_overlay`.
+A: Put them under your Nerves project's `rootfs_overlay/usr/lib/firmware/xilinx`.
 
 ### dfx-mgr details for DEV
 
