@@ -16,3 +16,4 @@ config BR2_PACKAGE_XMUTIL_DEFAULT_TAG
 source "$NERVES_DEFCONFIG_DIR/package/xmutil/libdfx/Config.in"
 source "$NERVES_DEFCONFIG_DIR/package/xmutil/dfx-mgr/Config.in"
 source "$NERVES_DEFCONFIG_DIR/package/xmutil/axi-qos/Config.in"
+source "$NERVES_DEFCONFIG_DIR/package/xmutil/ddr-qos/Config.in"

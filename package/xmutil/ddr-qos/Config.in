@@ -1,0 +1,24 @@
+config BR2_PACKAGE_DDR_QOS
+	bool "ddr-qos"
+	depends on BR2_PACKAGE_XMUTIL
+	help
+	  This application is to set QOS value forDDR slots
+	  on zynqmp platform
+
+	  https://github.com/Xilinx/ddr-qos
+
+config BR2_PACKAGE_DDR_QOS_USE_XMUTIL_TAG
+	bool "use xmutil default tag"
+	default y
+	depends on BR2_PACKAGE_XMUTIL
+	depends on BR2_PACKAGE_DDR_QOS
+
+config BR2_PACKAGE_DDR_QOS_TAG
+	string "ddr-qos git tag"
+	depends on BR2_PACKAGE_DDR_QOS
+	depends on !BR2_PACKAGE_DDR_QOS_USE_XMUTIL_TAG
+	help
+	  Specify git tag
+	  If empty BR2_PACKAGE_XMUTIL_DEFAULT_TAG is used
+
+	  https://github.com/Xilinx/ddr-qos
