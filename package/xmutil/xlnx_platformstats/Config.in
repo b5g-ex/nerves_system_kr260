@@ -1,0 +1,23 @@
+config BR2_PACKAGE_XLNX_PLATFORMSTATS
+	bool "xlnx_platformstats"
+	depends on BR2_PACKAGE_XMUTIL
+	help
+	  A library that provides APIs to print different platform statistics.
+
+	  https://github.com/Xilinx/xlnx_platformstats
+
+config BR2_PACKAGE_XLNX_PLATFORMSTATS_USE_XMUTIL_TAG
+	bool "use xmutil default tag"
+	default y
+	depends on BR2_PACKAGE_XMUTIL
+	depends on BR2_PACKAGE_XLNX_PLATFORMSTATS
+
+config BR2_PACKAGE_XLNX_PLATFORMSTATS_TAG
+	string "xlnx_platformstats git tag"
+	depends on BR2_PACKAGE_XLNX_PLATFORMSTATS
+	depends on !BR2_PACKAGE_XLNX_PLATFORMSTATS_USE_XMUTIL_TAG
+	help
+	  Specify git tag
+	  If empty BR2_PACKAGE_XMUTIL_DEFAULT_TAG is used
+
+	  https://github.com/Xilinx/xlnx_platformstats
