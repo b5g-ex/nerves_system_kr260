@@ -1,0 +1,24 @@
+config BR2_PACKAGE_AXI_QOS
+	bool "axi-qos"
+	depends on BR2_PACKAGE_XMUTIL
+	help
+	  This application is to set QOS value for AXI ports
+	  on ZYNQMP platform
+
+	  https://github.com/Xilinx/axi-qos
+
+config BR2_PACKAGE_AXI_QOS_USE_XMUTIL_TAG
+	bool "use xmutil default tag"
+	default y
+	depends on BR2_PACKAGE_XMUTIL
+	depends on BR2_PACKAGE_AXI_QOS
+
+config BR2_PACKAGE_AXI_QOS_TAG
+	string "axi-qos git tag"
+	depends on BR2_PACKAGE_AXI_QOS
+	depends on !BR2_PACKAGE_AXI_QOS_USE_XMUTIL_TAG
+	help
+	  Specify git tag
+	  If empty BR2_PACKAGE_XMUTIL_DEFAULT_TAG is used
+
+	  https://github.com/Xilinx/axi-qos
