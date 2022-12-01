@@ -1,0 +1,24 @@
+config BR2_PACKAGE_LIBDFX
+	bool "libdfx"
+	depends on BR2_PACKAGE_XMUTIL
+	help
+	  The library is a lightweight user-space library that provides
+	  APIs for application to configure the PL.
+
+	  https://github.com/Xilinx/libdfx
+
+config BR2_PACKAGE_LIBDFX_USE_XMUTIL_TAG
+	bool "use xmutil default tag"
+	default y
+	depends on BR2_PACKAGE_XMUTIL
+	depends on BR2_PACKAGE_LIBDFX
+
+config BR2_PACKAGE_LIBDFX_TAG
+	string "libdfx git tag"
+	depends on BR2_PACKAGE_LIBDFX
+	depends on !BR2_PACKAGE_LIBDFX_USE_XMUTIL_TAG
+	help
+	  Specify git tag
+	  If empty BR2_PACKAGE_XMUTIL_DEFAULT_TAG is used
+
+	  https://github.com/Xilinx/libdfx

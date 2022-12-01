@@ -3,5 +3,4 @@
 # If these are non-proprietary, please consider contributing them back to
 # Nerves or Buildroot.
 
-source "$NERVES_DEFCONFIG_DIR/package/libdfx/Config.in"
-source "$NERVES_DEFCONFIG_DIR/package/dfx-mgr/Config.in"
+source "$NERVES_DEFCONFIG_DIR/package/xmutil/Config.in"

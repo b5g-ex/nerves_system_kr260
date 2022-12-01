@@ -1,0 +1,17 @@
+config BR2_PACKAGE_XMUTIL
+	bool "xmutil"
+	help
+	  The different SOM tools.
+	  This package provides tools, but not a wrapper script.
+
+	  https://github.com/Xilinx/libdfx
+
+config BR2_PACKAGE_XMUTIL_DEFAULT_TAG
+	string "xmutil default git tag"
+	depends on BR2_PACKAGE_XMUTIL
+	default "xilinx_v2022.1_update2"
+	help
+	  Specify tools default tag name.
+
+source "$NERVES_DEFCONFIG_DIR/package/xmutil/libdfx/Config.in"
+source "$NERVES_DEFCONFIG_DIR/package/xmutil/dfx-mgr/Config.in"
