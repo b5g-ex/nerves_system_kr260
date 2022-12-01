@@ -1,0 +1,25 @@
+config BR2_PACKAGE_IMAGE_UPDATE
+	bool "image_update"
+	depends on BR2_PACKAGE_XMUTIL
+	help
+	  This is a user space application that updates
+	  the alternate image on QSPI while linux is running from
+	  the current running image.
+
+	  https://github.com/Xilinx/linux-image_update
+
+config BR2_PACKAGE_IMAGE_UPDATE_USE_XMUTIL_TAG
+	bool "use xmutil default tag"
+	default y
+	depends on BR2_PACKAGE_XMUTIL
+	depends on BR2_PACKAGE_IMAGE_UPDATE
+
+config BR2_PACKAGE_IMAGE_UPDATE_TAG
+	string "image_update git tag"
+	depends on BR2_PACKAGE_IMAGE_UPDATE
+	depends on !BR2_PACKAGE_IMAGE_UPDATE_USE_XMUTIL_TAG
+	help
+	  Specify git tag
+	  If empty BR2_PACKAGE_XMUTIL_DEFAULT_TAG is used
+
+	  https://github.com/Xilinx/linux-image_update
