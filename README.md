@@ -2,8 +2,12 @@
 
 [![Hex version](https://img.shields.io/hexpm/v/nerves_system_kr260.svg "Hex version")](https://hex.pm/packages/nerves_system_kr260)
 
-This is the base Nerves System configuration for the Kria KR260.
+This is the base Nerves System configuration for the [Kria KR260](https://www.xilinx.com/products/som/kria/kr260-robotics-starter-kit.html).
 
+![Kria KR260](assets/images/kr260-angel-2.png)
+
+The above image is obtained from AMD's official website
+under the [Media Library Terms and Conditions](https://www.amd.com/en/corporate/newsroom-media-terms-conditions).
 
 | Feature         | Description                                                                  |
 | --------------- | ---------------------------------------------------------------------------- |
