@@ -4,6 +4,11 @@
 
 This is the base Nerves System configuration for the [Kria KR260](https://www.xilinx.com/products/som/kria/kr260-robotics-starter-kit.html).
 
+![Kria KR260](assets/images/kr260-angel-2.png)
+
+The above image is obtained from AMD's official website
+under the [Media Library Terms and Conditions](https://www.amd.com/en/corporate/newsroom-media-terms-conditions).
+
 | Feature         | Description                                                                  |
 | --------------- | ---------------------------------------------------------------------------- |
 | CPU             | 1.333 GHz quad-core Cortex-A53                                               |
